@@ -1,12 +1,14 @@
 {
-    "users": [
-        {   "id": 1,
-            "nome": "João Marcos Ferreira",
-            "email": "jmfgo11352@gmail.com"
-        },
-        {   "id": 2,
-            "nome": "Joana Emilia Silva Jandira",
-            "email": "jojomilia@hotmail.com"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "nome": "João Marcos Ferreira",
+      "email": "jmfgo11352@gmail.com"
+    },
+    {
+      "id": 2,
+      "nome": "Joana Emilia Silva Jandira",
+      "email": "jojomilia@hotmail.com"
+    }
+  ]
 }
