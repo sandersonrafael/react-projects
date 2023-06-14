@@ -4,7 +4,17 @@ const Footer = (props) => (
   <footer className="footer">
     <span>
       Desenvolvido com <i className="fa fa-heart text-danger"></i> por
-      <strong> Sanderson Rafael</strong>
+      <strong>
+        {' '}
+        <a
+          href="https://www.linkedin.com/in/sandersonrafael/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="linkedin"
+        >
+          Sanderson Rafael
+        </a>
+      </strong>
     </span>
   </footer>
 );

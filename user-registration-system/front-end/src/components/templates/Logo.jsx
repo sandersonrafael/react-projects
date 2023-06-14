@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom';
+
 import './Logo.css';
 import logo from '../../assets/imgs/add-users-system.jpg';
 
 const Logo = (props) => (
   <aside className="logo">
-    <a href="/">
+    <Link to="/">
       <img src={logo} alt="Logo" />
-    </a>
+    </Link>
   </aside>
 );
 

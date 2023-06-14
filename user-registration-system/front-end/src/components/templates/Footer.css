@@ -6,3 +6,7 @@ footer.footer {
   background-color: #fff;
   box-shadow: var(--shadow);
 }
+
+footer.footer a.linkedin {
+  text-decoration: none;
+}
