@@ -127,7 +127,7 @@ const UserCrud = () => {
           <td>{user.id}</td>
           <td>{user.name}</td>
           <td>{user.email}</td>
-          <td className="d-flex gap-2">
+          <td className="d-flex flex-wrap gap-1">
             <button className="btn btn-warning" onClick={() => load(user)}>
               <i className="fa fa-pencil"></i>
             </button>
