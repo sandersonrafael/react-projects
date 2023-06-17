@@ -10,5 +10,8 @@ module.exports = {
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'import/prefer-default-export': 'off',
+    'react/no-array-index-key': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };
