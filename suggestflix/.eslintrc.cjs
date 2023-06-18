@@ -13,5 +13,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/no-array-index-key': 'off',
     'react/forbid-prop-types': 'off',
+    'react/prop-types': 'off',
   },
 };

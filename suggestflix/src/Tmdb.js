@@ -4,6 +4,9 @@ const API_BASE = import.meta.env.VITE_BASE_URL;
 const basicFetch = async (endpoint) => {
   const req = await fetch(`${API_BASE}${endpoint}`);
   const json = await req.json();
+  // fazer lógica para puxar 20 com idioma em inglês (sem filme indiano, ou japonês, etc)
+  // usar &page=1, 2, 3...
+  console.log('JSON', json);
   return json;
 };
 
