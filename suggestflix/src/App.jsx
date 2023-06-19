@@ -15,11 +15,20 @@ export default function App() {
       setMovieList(list);
 
       const popular = list.filter((item) => item.slug === 'popular')[0];
-      const chooseRandom = Math.floor(
-        Math.random() * (popular.items.results.length - 1)
+      let chosen;
+      do {
+        const chooseRandom = Math.floor(
+          Math.random() * (popular.items.results.length - 1)
+        );
+        chosen = popular.items.results[chooseRandom];
+      } while (
+        !(
+          chosen.original_language === 'pt' || chosen.original_language === 'en'
+        )
       );
-      const chosen = popular.items.results[chooseRandom];
-      console.log(chosen);
+      const chosenInfo = await Tmdb.getContentInfo(chosen.id, 'tv');
+
+      setFeaturedData(chosenInfo);
     };
 
     loadAll();

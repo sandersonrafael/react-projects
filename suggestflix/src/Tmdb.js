@@ -2,11 +2,8 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 const API_BASE = import.meta.env.VITE_BASE_URL;
 
 const basicFetch = async (endpoint) => {
-  const req = await fetch(`${API_BASE}${endpoint}`);
-  const json = await req.json();
-  // fazer lógica para puxar 20 com idioma em inglês (sem filme indiano, ou japonês, etc)
-  // usar &page=1, 2, 3...
-  console.log('JSON', json);
+  const res = await fetch(`${API_BASE}${endpoint}`);
+  const json = await res.json();
   return json;
 };
 
@@ -15,7 +12,7 @@ export default {
     return [
       {
         slug: 'popular',
-        title: 'Populares no Netflix',
+        title: 'Populares do SuggestFlix',
         items: await basicFetch(
           `/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`
         ),
@@ -70,5 +67,30 @@ export default {
         ),
       },
     ];
+  },
+
+  getContentInfo: async (movieId, type) => {
+    let info = {};
+
+    if (movieId) {
+      switch (type) {
+        case 'movie':
+          info = await basicFetch(
+            `/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`
+          );
+          break;
+
+        case 'tv':
+          info = await basicFetch(
+            `/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`
+          );
+          break;
+
+        default:
+          break;
+      }
+    }
+
+    return info;
   },
 };

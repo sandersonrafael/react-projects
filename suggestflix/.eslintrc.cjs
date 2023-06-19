@@ -14,5 +14,7 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'react/forbid-prop-types': 'off',
     'react/prop-types': 'off',
+    'no-await-in-loop': 'off',
+    'no-plusplus': 'off',
   },
 };
