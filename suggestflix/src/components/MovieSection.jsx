@@ -1,4 +1,5 @@
 import './MovieSection.css';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 export default function MovieSection({ title, items }) {
   return (
@@ -6,6 +7,8 @@ export default function MovieSection({ title, items }) {
       <h2>{title}</h2>
       <div className="movieSection--listarea">
         <div className="movieSection--list">
+          <FaAngleLeft className="angle-left" />
+          <FaAngleRight className="angle-right" />
           {items.results.length > 0 &&
             items.results.map((item, key) => {
               return item.poster_path ? (

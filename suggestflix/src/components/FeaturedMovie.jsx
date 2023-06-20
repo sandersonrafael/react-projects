@@ -1,7 +1,7 @@
 import './FeaturedMovie.css';
+import { FaRegPlayCircle, FaPlus } from 'react-icons/fa';
 
 export default function FeaturedMovie({ item }) {
-  console.log(item);
   const firstDate = new Date(item.first_air_date).getFullYear();
   const genres = [];
   for (let genre of item.genres) { // eslint-disable-line
@@ -37,10 +37,10 @@ export default function FeaturedMovie({ item }) {
                 rel="noopener noreferrer"
                 className="featured--watchbutton"
               >
-                ▶ Assistir
+                <FaRegPlayCircle /> Assistir
               </a>
               <a href="/#" className="featured--mylistbutton">
-                + Minha Lista
+                <FaPlus /> Minha Lista
               </a>
             </div>
             <div className="featured--genres">

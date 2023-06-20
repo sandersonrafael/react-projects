@@ -13,6 +13,7 @@
 
 .movieSection--list {
   width: max-content;
+  position: relative;
 }
 
 .movieSection--item {
@@ -36,4 +37,12 @@
   .movieSection--item {
     max-width: 150px;
   }
+}
+
+.angle-left,
+.angle-right {
+  position: absolute;
+  font-size: 50px;
+  top: 0;
+  bottom: 0;
 }

@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import Tmdb from './Tmdb';
 import MovieSection from './components/MovieSection';
 import FeaturedMovie from './components/FeaturedMovie';
+import Header from './components/Header';
 
 import './App.css';
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -34,14 +36,38 @@ export default function App() {
     loadAll();
   }, []);
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) setBlackHeader(true);
+      else setBlackHeader(false);
+    };
+    window.addEventListener('scroll', scrollListener);
+
+    return () => window.removeEventListener('scroll', scrollListener);
+  }, []);
+
   return (
     <div className="page">
+      <Header black={blackHeader} />
       {featuredData && <FeaturedMovie item={featuredData} />}
       <section className="lists">
         {movieList.map((item, key) => (
           <MovieSection key={key} title={item.title} items={item.items} />
         ))}
       </section>
+      <footer>
+        <span>
+          Desenvolvido por
+          <a
+            href="http://linkedin.com/in/sandersonrafael"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {' '}
+            Sanderson Rafael
+          </a>
+        </span>
+      </footer>
     </div>
   );
 }
