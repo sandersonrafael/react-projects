@@ -25,7 +25,9 @@ export default function App() {
         chosen = popular.items.results[chooseRandom];
       } while (
         !(
-          chosen.original_language === 'pt' || chosen.original_language === 'en'
+          chosen.original_language === 'pt' ||
+          chosen.original_language === 'en' ||
+          chosen.original_language === 'es'
         )
       );
       const chosenInfo = await Tmdb.getContentInfo(chosen.id, 'tv');

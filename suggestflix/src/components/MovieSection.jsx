@@ -1,14 +1,31 @@
+import { useRef, useState } from 'react';
 import './MovieSection.css';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 export default function MovieSection({ title, items }) {
+  const movieList = useRef(null);
+  const [scrlX, setScrlX] = useState(/* -3680 + window.innerWidth */ 0);
+  const handleFaAngleLeft = () => {
+    const sectionWidth = movieList.current.clientWidth;
+    const newScrlX = scrlX + sectionWidth / 10;
+    setScrlX(newScrlX > 0 ? 0 : newScrlX);
+  };
+
+  const handleFaAngleRight = () => {
+    const sectionWidth = movieList.current.clientWidth;
+    const maxSectionWidth = -sectionWidth - 80 + window.innerWidth;
+    const newScrlX = scrlX - sectionWidth / 10;
+    if (newScrlX <= maxSectionWidth) return setScrlX(maxSectionWidth);
+    return setScrlX(newScrlX);
+  };
+
   return (
     <div className="movieSection">
       <h2>{title}</h2>
-      <div className="movieSection--listarea">
-        <div className="movieSection--list">
-          <FaAngleLeft className="angle-left" />
-          <FaAngleRight className="angle-right" />
+      <FaAngleLeft className="fa-angle-left" onClick={handleFaAngleLeft} />
+      <FaAngleRight className="fa-angle-right" onClick={handleFaAngleRight} />
+      <div className="movieSection--listarea" style={{ marginLeft: scrlX }}>
+        <div className="movieSection--list" ref={movieList}>
           {items.results.length > 0 &&
             items.results.map((item, key) => {
               return item.poster_path ? (

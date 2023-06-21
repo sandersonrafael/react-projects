@@ -1,5 +1,5 @@
 import './FeaturedMovie.css';
-import { FaRegPlayCircle, FaPlus } from 'react-icons/fa';
+import { FaPlay, FaPlus } from 'react-icons/fa';
 
 export default function FeaturedMovie({ item }) {
   const firstDate = new Date(item.first_air_date).getFullYear();
@@ -37,10 +37,10 @@ export default function FeaturedMovie({ item }) {
                 rel="noopener noreferrer"
                 className="featured--watchbutton"
               >
-                <FaRegPlayCircle /> Assistir
+                <FaPlay style={{ height: 16 }} /> Assistir
               </a>
               <a href="/#" className="featured--mylistbutton">
-                <FaPlus /> Minha Lista
+                <FaPlus style={{ height: 16 }} /> Minha Lista
               </a>
             </div>
             <div className="featured--genres">

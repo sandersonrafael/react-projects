@@ -13,7 +13,6 @@
 
 .movieSection--list {
   width: max-content;
-  position: relative;
 }
 
 .movieSection--item {
@@ -33,16 +32,54 @@
   transform: scale(1);
 }
 
+
+.fa-angle-left,
+.fa-angle-right {
+  position: absolute;
+  font-weight: 100;
+  width: 40px;
+  height: 270px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  display: flex;
+  /* display: none; */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+}
+
+/* .fa-angle-left:has(~ .movieSection--listarea:hover),
+.fa-angle-right:has(~ .movieSection--listarea:hover),
+.fa-angle-left:hover,
+.fa-angle-right:hover,
+.fa-angle-left:hover ~ .fa-angle-right,
+.fa-angle-left:has(~ .fa-angle-right:hover) {
+  display: flex;
+} */
+
+.movieSection:hover .fa-angle-left,
+.movieSection:hover .fa-angle-right {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.fa-angle-left {
+  left: 0;
+}
+.fa-angle-right {
+  right: 0;
+}
+
+
 @media (max-width: 576px) {
   .movieSection--item {
     max-width: 150px;
   }
+  .fa-angle-left,
+  .fa-angle-right {
+    height: 225px;
+    display: flex;
 }
-
-.angle-left,
-.angle-right {
-  position: absolute;
-  font-size: 50px;
-  top: 0;
-  bottom: 0;
 }
