@@ -19,7 +19,7 @@ export default function App() {
       const popular = list.filter((item) => item.slug === 'popular')[0];
       let chosen;
       do {
-        const chooseRandom = Math.floor(
+        const chooseRandom = Math.round(
           Math.random() * (popular.items.results.length - 1)
         );
         chosen = popular.items.results[chooseRandom];
