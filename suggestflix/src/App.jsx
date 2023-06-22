@@ -3,6 +3,7 @@ import Tmdb from './Tmdb';
 import MovieSection from './components/MovieSection';
 import FeaturedMovie from './components/FeaturedMovie';
 import Header from './components/Header';
+import loadingImg from './public/gif/spinner-loading.gif';
 
 import './App.css';
 
@@ -51,7 +52,13 @@ export default function App() {
   return (
     <div className="page">
       <Header black={blackHeader} />
-      {featuredData && <FeaturedMovie item={featuredData} />}
+      {featuredData ? (
+        <FeaturedMovie item={featuredData} />
+      ) : (
+        <div className="loading">
+          <img src={loadingImg} alt="Carregando..." />
+        </div>
+      )}
       <section className="lists">
         {movieList.map((item, key) => (
           <MovieSection key={key} title={item.title} items={item.items} />

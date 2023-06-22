@@ -29,7 +29,11 @@ export default function FeaturedMovie({ item }) {
               {item.number_of_seasons}
               {item.number_of_seasons === 1 ? ' temporada' : ' temporadas'}
             </div>
-            <div className="featured--description">{item.overview}</div>
+            <div className="featured--description">
+              {item.overview?.length > 200
+                ? `${item.overview.substring(0, 200)}...`
+                : item.overview}
+            </div>
             <div className="featured--buttons">
               <a
                 href={item.homepage}

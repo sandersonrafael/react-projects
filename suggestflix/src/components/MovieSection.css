@@ -9,6 +9,7 @@
 .movieSection--listarea {
   overflow-x: hidden;
   padding-left: 30px;
+  transition: margin 250ms ease;
 }
 
 .movieSection--list {
@@ -32,7 +33,6 @@
   transform: scale(1);
 }
 
-
 .fa-angle-left,
 .fa-angle-right {
   position: absolute;
@@ -42,22 +42,12 @@
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
   display: flex;
-  /* display: none; */
   align-items: center;
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
   opacity: 0;
 }
-
-/* .fa-angle-left:has(~ .movieSection--listarea:hover),
-.fa-angle-right:has(~ .movieSection--listarea:hover),
-.fa-angle-left:hover,
-.fa-angle-right:hover,
-.fa-angle-left:hover ~ .fa-angle-right,
-.fa-angle-left:has(~ .fa-angle-right:hover) {
-  display: flex;
-} */
 
 .movieSection:hover .fa-angle-left,
 .movieSection:hover .fa-angle-right {
@@ -72,6 +62,16 @@
   right: 0;
 }
 
+@media (max-width: 768px) {
+  .fa-angle-left,
+  .fa-angle-right {
+    opacity: .7;
+  }
+  .fa-angle-left:active,
+  .fa-angle-right:active {
+    opacity: 1;
+  }
+}
 
 @media (max-width: 576px) {
   .movieSection--item {

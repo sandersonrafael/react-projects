@@ -44,12 +44,8 @@
 
 .featured--description {
   margin-top: 15px;
-  font-size: 20px;
   color: #999;
   max-width: 40%;
-  line-height: 24px;
-  max-height: 120px;
-  overflow-y: auto;
 }
 
 .featured--buttons {
@@ -83,4 +79,34 @@
   margin-top: 15px;
   font-size: 18px;
   color: #999;
+}
+
+@media (max-width: 768px) {
+  .featured--name {
+    font-size: 40px;
+  }
+
+  .featured--ninfo {
+    font-size: 16px;
+  }
+
+  .featured--description {
+    color: #ccc
+  }
+
+}
+
+@media (max-width: 576px) {
+  .featured--description {
+    max-width: calc(100% - 30px);
+  }
+
+  .featured--vertical {
+    background-image: linear-gradient(to top, #111 10%, #11111122 90%);
+  }
+
+  .featured--horizontal {
+    background-image: linear-gradient(to right, #111 10%, #11111122 70%);
+
+  }
 }
