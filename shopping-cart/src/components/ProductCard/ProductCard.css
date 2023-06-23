@@ -47,13 +47,13 @@
   color: white;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 2px;
   display: none;
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  left: 10px;
+  bottom: 15px;
+  right: 5px;
+  left: 5px;
 }
 
 .button--add-cart:hover {
