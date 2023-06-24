@@ -19,7 +19,6 @@ export default function ProductCard({ data }) {
         uniqueCode: `${id}${Math.round(Math.random() * 100000000)}`,
       },
     ]);
-    console.log(cartProducts);
   };
 
   return (
