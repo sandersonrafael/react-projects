@@ -26,6 +26,7 @@ export const Container = styled.div`
       display: block;
       margin-top: 7px;
       box-sizing: border-box;
+      width: calc(100% - 10px);
       padding: 20px 10px;
       border: 2px solid #25CD89;
       border-radius: 10px;
@@ -34,5 +35,17 @@ export const Container = styled.div`
       font-size: 15px;
       background-color: #02044A;
     }
+  }
+
+  button {
+    background-color: #25cd89;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 40px;
+    border: 0;
+    border-radius: 30px;
+    margin-top: 30px;
+    cursor: pointer;
   }
 `;
