@@ -49,4 +49,18 @@ export const Container = styled.div`
     margin-top: 30px;
     cursor: pointer;
   }
+
+  .back-button {
+    font-size: 16px;
+    text-decoration: none;
+    padding: 20px 40px;
+    color: #B8B8D4;
+    border-radius: 30px;
+    margin-right: 5px;
+    border: 2px solid #496459;
+
+    &:hover {
+      background-color: #496459;
+    }
+  }
 `;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { Theme } from '../../components/Theme';
 import { useForm, FormActions } from '../../contexts/FormContext';
@@ -20,7 +20,7 @@ export const Step2 = () => {
   }, []);
 
   const handleNextStep = () => {
-    if (state.name.length > 2) navigate('/step2');
+    if (state.name.length > 2) navigate('/step3');
     else window.alert('Informe um nome válido.');
   };
 
@@ -56,6 +56,7 @@ export const Step2 = () => {
           onClick={() => setLevel(1)}
         />
 
+        <Link to="/" className="back-button">Voltar</Link>
         <button onClick={handleNextStep}>Próximo</button>
       </C.Container>
     </Theme>
