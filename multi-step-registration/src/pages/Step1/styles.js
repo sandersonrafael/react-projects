@@ -10,6 +10,7 @@ export const Container = styled.div`
     margin: 0;
     padding: 0;
     font-size: 26px;
+    margin-bottom: 10px;
   }
 
   hr {
