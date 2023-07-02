@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import * as C from './App.styles';
 
 import TableArea from './components/TableArea';
+import InfoArea from './components/InfoArea';
+
 import { categories } from './data/categories';
 import { items } from './data/items';
 import { getCurrentMonth, filterListByMonth } from './utils/dateFilter';
@@ -21,7 +23,7 @@ function App() {
         <C.HeaderText>Sistema Financeiro</C.HeaderText>
       </C.Header>
       <C.Body>
-
+        <InfoArea />
 
         <TableArea list={filteredList} />
       </C.Body>

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import * as C from './styles';
+import TableItem from '../TableItem';
 
 export default function TableArea({ list }) {
   return (
@@ -15,12 +16,7 @@ export default function TableArea({ list }) {
       </thead>
       <tbody>
         {list.map((item, index) => (
-          <tr key={index}>
-            <td>{}</td>
-            <td>{}</td>
-            <td>{item.title}</td>
-            <td>{}</td>
-          </tr>
+          <TableItem item={item} key={index}/>
         ))}
       </tbody>
 

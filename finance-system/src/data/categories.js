@@ -6,7 +6,7 @@ export const categories = {
   },
   rent: {
     title: 'Aluguel',
-    color: 'brow',
+    color: 'brown',
     expense: true,
   },
   salary: {
