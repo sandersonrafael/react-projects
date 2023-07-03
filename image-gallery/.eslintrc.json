@@ -28,6 +28,8 @@
     "jsx-quotes": ["error", "prefer-double"],
     "react/react-in-jsx-scope": "off",
     "comma-dangle": ["error", "always-multiline"],
-    "object-curly-spacing": ["error", "always"]
+    "object-curly-spacing": ["error", "always"],
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "no-console": "warn"
   }
 }
