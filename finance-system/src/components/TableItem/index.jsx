@@ -21,7 +21,7 @@ export default function TableItem({ item }) {
         <C.Value coll={categories[item.category].expense}>
           {item.value.toLocaleString('pt-BR', {
             style: 'currency',
-            currency: 'BRL',
+            currency: 'BRL'
           })}
         </C.Value>
       </C.TableColumn>

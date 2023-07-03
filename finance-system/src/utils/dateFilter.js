@@ -1,3 +1,18 @@
+const months_ptBR = [
+  'Janeiro',
+  'Fevereiro',
+  'Março',
+  'Abril',
+  'Maio',
+  'Junho',
+  'Julho',
+  'Agosto',
+  'Setembro',
+  'Outubro',
+  'Novembro',
+  'Dezembro'
+];
+
 export const getCurrentMonth = () => {
   const now = new Date();
   return `${now.getFullYear()}-${now.getMonth() + 1}`;
@@ -25,4 +40,10 @@ export const formatDate = (date) => {
   const day = date.getDate();
 
   return `${hasZeroOrNot(day)}/${hasZeroOrNot(month)}/${year}`;
+};
+
+export const formatCurrentMont = (currentMonth) => {
+  const [year, monthNumber] = currentMonth.split('-');
+  const month = months_ptBR[monthNumber - 1];
+  return (`${month} de ${year}`);
 };
