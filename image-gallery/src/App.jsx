@@ -7,6 +7,7 @@ import * as C from './App.styles';
 function App() {
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     const getImages = async () => {
@@ -16,12 +17,38 @@ function App() {
     };
     getImages();
   }, []);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const file = formData.get('image');
+
+    if (file && file.size > 0) {
+      setUploading(true);
+      const result = await Images.insert(file);
+      setUploading(false);
+
+      if (result instanceof Error)
+        window.alert(`${result.name} - ${result.message}`);
+      else {
+        const newImageList = [...images];
+        newImageList.push(result);
+        setImages(newImageList);
+      }
+    }
+  };
+
   return (
     <C.Container>
       <C.Area>
         <C.Header>Galeria de Fotos</C.Header>
 
-        {/* Área de Upload */}
+        <C.UploadForm method="POST" onSubmit={handleFormSubmit}>
+          <input type="file" name="image" />
+          <input type="submit" value="Enviar" />
+          {uploading && 'Enviando...'}
+        </C.UploadForm>
 
         {loading ? (
           <C.ScreenWarning>

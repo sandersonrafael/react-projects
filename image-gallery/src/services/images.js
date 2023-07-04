@@ -1,5 +1,6 @@
 import { storage } from '../libs/firebase';
-import { ref, listAll, getDownloadURL } from 'firebase/storage';
+import { ref, listAll, getDownloadURL, uploadBytes } from 'firebase/storage';
+import { v4 } from 'uuid';
 
 export const getAll = async () => {
   const list = [];
@@ -17,4 +18,18 @@ export const getAll = async () => {
   }
 
   return list;
+};
+
+export const insert = async (file) => {
+  if (['image/jpeg', 'image/png'].includes(file.type)) {
+    const randomName = v4();
+    const newFile = ref(storage, `images/${randomName}`);
+    const upload = await uploadBytes(newFile, file);
+    const imageUrl = await getDownloadURL(upload.ref);
+
+    return {
+      name: upload.ref.name,
+      url: imageUrl,
+    };
+  } else return new Error('Formato de arquivo inválido');
 };
