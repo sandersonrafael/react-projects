@@ -25,12 +25,11 @@ function App() {
 
         <AddArea onEnter={handleAddTask} />
 
-        {list.map((item, index) => (
+        {list.map((item) => (
           <ListItem
             context={{ list: list, setList: setList }}
             item={item}
-            key={index}
-            index={index}
+            key={item.id}
           />
         ))}
       </C.Area>
