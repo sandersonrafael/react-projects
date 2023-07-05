@@ -5,20 +5,33 @@ import AddArea from './components/AddArea';
 import * as C from './App.styles';
 
 function App() {
-  const [list, setList] = useState([
-    {id: 1, name: 'Comprar comida', done: false},
-    {id: 2, name: 'Comprar vassoura', done: false},
-  ]);
+  const [list, setList] = useState([]);
+
+  const handleAddTask = (taskName) => {
+    const newList = [...list];
+    newList.push({
+      id: list.length + 1,
+      name: taskName,
+      done: false,
+    });
+
+    setList(newList);
+  };
 
   return (
     <C.Container>
       <C.Area>
         <C.Header>Lista de Tarefas</C.Header>
 
-        <AddArea />
+        <AddArea onEnter={handleAddTask} />
 
         {list.map((item, index) => (
-          <ListItem item={item} key={index}/>
+          <ListItem
+            context={{ list: list, setList: setList }}
+            item={item}
+            key={index}
+            index={index}
+          />
         ))}
       </C.Area>
     </C.Container>

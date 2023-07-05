@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import * as C from './styles';
 import { useState } from 'react';
 
-export default function ListItem({ item }) {
+export default function ListItem({ item, context, index }) {
   const [isChecked, setIsChecked] = useState(item.done);
 
   return (
@@ -11,7 +11,15 @@ export default function ListItem({ item }) {
       <input
         type="checkbox"
         checked={isChecked}
-        onChange={(e) => setIsChecked(e.target.checked)}
+        onChange={(e) => setIsChecked(() => {
+          context.setList(() => {
+            const newList = [...context.list];
+            newList[index].done = !isChecked;
+            return newList;
+          });
+          console.log(context.list);
+          return e.target.checked;
+        })}
         id={'checkbox-task-' + item.id}
       />
       <label htmlFor={'checkbox-task-' + item.id}>
@@ -27,4 +35,9 @@ ListItem.propTypes = {
     name: PropTypes.string.isRequired,
     done: PropTypes.bool.isRequired,
   }).isRequired,
+  context: PropTypes.shape({
+    list: PropTypes.array,
+    setList: PropTypes.func,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
