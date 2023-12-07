@@ -26,6 +26,7 @@ const ImageCropper = ({ imageSrc, setCroppedArea }: ImageCropperTypes) => {
         onCropComplete={onCropComplete}
         onZoomChange={setZoom}
         objectFit='cover'
+        cropShape='round'
       />
     </div>
   );

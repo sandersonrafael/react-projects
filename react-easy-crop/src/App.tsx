@@ -32,8 +32,12 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log(imageSrc);
-  }, [imageSrc]);
+    console.log(croppedImgSrc);
+  }, [croppedImgSrc]);
+
+  useEffect(() => {
+    console.log(croppedImgSrc);
+  }, [croppedImgSrc]);
 
   return (
     <>
@@ -42,7 +46,7 @@ const App = () => {
       <input type="file" name="img" onChange={handleFileChange} />
       <br />
       <button onClick={handleSaveImage} type="button">Salvar imagem</button>
-      <img src={croppedImgSrc} alt="Cropped Image" style={{ display: 'block' }} />
+      <img src={croppedImgSrc} alt="Cropped Image" style={{ display: 'block', borderRadius: '50%' }} />
     </>
   );
 }

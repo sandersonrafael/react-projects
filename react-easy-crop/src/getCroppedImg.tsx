@@ -29,8 +29,25 @@ const getCroppedImg = (image: string, croppedAreaPixels: Area): Promise<string> 
         croppedAreaPixels.height,
       );
 
-      const croppedImgUrl = canvas.toDataURL('image/jpeg');
-      resolve(croppedImgUrl);
+      // caso se deseje base64
+      // const croppedImgUrl = canvas.toDataURL('image/jpeg');
+      // resolve(croppedImgUrl);
+
+      /* Para Blob */
+      canvas.toBlob(
+        (blob) => {
+          if (!blob) {
+            reject(new Error('Não foi possível converter o canvas para Blob'));
+            return;
+          }
+
+          const croppedImageUrl = URL.createObjectURL(blob);
+          resolve(croppedImageUrl);
+        },
+        'image/jpeg',
+        1,
+      );
+
     };
 
     img.onerror = (error) => {
